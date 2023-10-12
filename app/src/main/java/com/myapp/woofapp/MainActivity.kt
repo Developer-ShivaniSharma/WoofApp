@@ -4,7 +4,6 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -16,10 +15,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ExpandLess
+import androidx.compose.material.icons.filled.ExpandMore
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -57,14 +61,31 @@ class MainActivity : ComponentActivity() {
 fun WoofApp(modifier: Modifier = Modifier) {
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun WoofAppBar(modifier: Modifier = Modifier) {
+    CenterAlignedTopAppBar(title = {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Image(
+                painter = painterResource(R.drawable.ic_woof_logo),
+                modifier = Modifier.padding(16.dp),
+                contentDescription = null
+            )
+            Text(
+                text = stringResource(R.string.app_name),
+                style = MaterialTheme.typography.displayMedium
+            )
+        }
+
+    })
+}
+
+
 @Composable
 fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
     Card(
-        modifier = Modifier.padding(10.dp).
-        background(
-            color = Color.Green,
-            shape = CutCornerShape(8.dp)
-        )
+        modifier = Modifier.padding(10.dp),
+        colors = CardDefaults.cardColors(containerColor = Color.LightGray)
     ) {
         Row(
             modifier = modifier
@@ -103,23 +124,31 @@ fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun WoofAppBar(modifier: Modifier = Modifier) {
-    CenterAlignedTopAppBar(title = {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Image(
-                painter = painterResource(R.drawable.ic_woof_logo),
-                modifier = Modifier.padding(16.dp),
-                contentDescription = null
-            )
-            Text(
-                text = stringResource(R.string.app_name),
-                style = MaterialTheme.typography.displayMedium
-            )
-        }
+fun DogHobbies(modifier: Modifier = Modifier) {
+    Column {
+        Text(
+            text = stringResource(R.string.about),
+            style = MaterialTheme.typography.labelSmall
+        )
+        Text(
+            text = stringResource(R.string.dog_description_1),
+            style = MaterialTheme.typography.bodyLarge
+        )
+    }
 
-    })
+}
+
+@Composable
+fun WoofClickButton(expended: Boolean, onClick: () -> Unit, modifier: Modifier = Modifier) {
+    IconButton(onClick = onClick, modifier = modifier) {
+        Icon(
+            imageVector = if(expended)Icons.Filled.ExpandLess else Icons.Filled.ExpandMore,
+            contentDescription =
+        )
+
+
+    }
 }
 
 @Composable
@@ -144,7 +173,13 @@ fun DogDetailPreview() {
     DogDetail(DogInfo(R.drawable.koda, R.string.dog_name_1, 2, R.string.dog_description_1))
 }
 
-@Preview
+@Preview(showBackground = true)
+@Composable
+fun DogHobbiesPreview() {
+    DogHobbies()
+}
+
+@Preview(showBackground = true)
 @Composable
 fun WoofAppListPreview() {
     WoofAppList(
