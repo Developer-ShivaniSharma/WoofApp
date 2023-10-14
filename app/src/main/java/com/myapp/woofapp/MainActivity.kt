@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -46,6 +47,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.myapp.woofapp.data.DogInfo
@@ -103,7 +105,7 @@ fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
     Card(
         modifier = Modifier.padding(8.dp),
         shape = RectangleShape,
-        colors = CardDefaults.cardColors(containerColor = Color.Gray)
+        colors = CardDefaults.cardColors(containerColor = Color.LightGray)
     ) {
         Row(
             modifier = modifier
@@ -138,6 +140,7 @@ fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
 
                 )
             }
+            Spacer(modifier = Modifier.weight(1f))
             WoofClickButton(
                 expanded = expanded,
                 onClick = { expanded = !expanded }
@@ -155,11 +158,12 @@ fun DogHobbies(modifier: Modifier = Modifier) {
     Column {
         Text(
             text = stringResource(R.string.about),
-            style = MaterialTheme.typography.labelSmall
+            style = MaterialTheme.typography.labelSmall,
+            textDecoration = TextDecoration.Underline
         )
         Text(
             text = stringResource(R.string.dog_description_1),
-            style = MaterialTheme.typography.bodyLarge
+            style = MaterialTheme.typography.bodyMedium
         )
     }
 
