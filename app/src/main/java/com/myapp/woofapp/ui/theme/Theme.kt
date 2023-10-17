@@ -18,6 +18,7 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
+import com.myapp.woofapp.ui.theme.Typography
 import com.myapp.woofapp.ui.theme.md_theme_dark_background
 import com.myapp.woofapp.ui.theme.md_theme_dark_error
 import com.myapp.woofapp.ui.theme.md_theme_dark_errorContainer
@@ -169,7 +170,7 @@ fun WoofAppTheme(
     MaterialTheme(
         colorScheme = colorScheme,
         shapes = shapes,
-        typography = typography,
+        typography = Typography,
         content = content
     )
 }

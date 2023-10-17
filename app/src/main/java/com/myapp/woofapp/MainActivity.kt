@@ -128,16 +128,16 @@ fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
             )
 
             Column {
-                Spacer(modifier = Modifier.height(5.dp))
+              //  Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     text = stringResource(dogInfo.name),
-                    style = MaterialTheme.typography.bodyMedium,
-                    fontWeight = FontWeight.Bold,
+                    style = MaterialTheme.typography.displayMedium,
+                    /*fontWeight = FontWeight.Bold,*/
                     modifier = Modifier.padding(start = 10.dp)
                 )
                 Text(
                     text = stringResource(R.string.years_old, dogInfo.age),
-                    style = MaterialTheme.typography.bodyMedium,
+                    style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(start = 10.dp)
 
                 )
