@@ -50,9 +50,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.woof.ui.theme.WoofAppTheme
 import com.myapp.woofapp.data.DogInfo
 import com.myapp.woofapp.model.WoofClass
-import com.myapp.woofapp.ui.theme.WoofAppTheme
+//import com.myapp.woofapp.ui.theme.WoofAppTheme
 import kotlin.system.exitProcess
 
 class MainActivity : ComponentActivity() {
@@ -62,7 +63,8 @@ class MainActivity : ComponentActivity() {
             WoofAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     WoofApp()
                 }
@@ -234,3 +236,4 @@ fun WoofAppListPreview() {
 fun WoofAppPreview() {
     WoofApp()
 }
+
