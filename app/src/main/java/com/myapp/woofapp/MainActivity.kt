@@ -1,20 +1,21 @@
 package com.myapp.woofapp
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.animation.animateColorAsState
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.Spring
+import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
@@ -40,21 +41,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.woof.ui.theme.WoofAppTheme
 import com.myapp.woofapp.data.DogInfo
 import com.myapp.woofapp.model.WoofClass
-//import com.myapp.woofapp.ui.theme.WoofAppTheme
-import kotlin.system.exitProcess
+import com.myapp.woofapp.ui.theme.WoofAppTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -63,8 +60,7 @@ class MainActivity : ComponentActivity() {
             WoofAppTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    modifier = Modifier.fillMaxSize()
                 ) {
                     WoofApp()
                 }
@@ -104,15 +100,26 @@ fun WoofAppBar(modifier: Modifier = Modifier) {
 @Composable
 fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
     var expanded by remember { mutableStateOf(false) }
+    val color by animateColorAsState(
+        targetValue = if (expanded) MaterialTheme.colorScheme.tertiaryContainer
+        else MaterialTheme.colorScheme.primaryContainer,
+    )
     Card(
         modifier = Modifier.padding(8.dp),
-        shape = RectangleShape,
-        colors = CardDefaults.cardColors(containerColor = Color.LightGray)
+        shape = RoundedCornerShape(topEnd = 16.dp, bottomStart = 16.dp),
     ) {
         Row(
             modifier = modifier
+                .animateContentSize(
+                    animationSpec = spring(
+                        dampingRatio = Spring.DampingRatioHighBouncy,
+                        stiffness = Spring.StiffnessHigh
+                    )
+                )
+                .background(color = color)
                 .fillMaxWidth()
-                .padding(8.dp)
+                .padding(8.dp),
+
 
         ) {
 
@@ -128,11 +135,9 @@ fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
             )
 
             Column {
-              //  Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     text = stringResource(dogInfo.name),
-                    style = MaterialTheme.typography.displayMedium,
-                    /*fontWeight = FontWeight.Bold,*/
+                    style = MaterialTheme.typography.displayLarge,
                     modifier = Modifier.padding(start = 10.dp)
                 )
                 Text(
@@ -143,10 +148,7 @@ fun DogDetail(dogInfo: DogInfo, modifier: Modifier = Modifier) {
                 )
             }
             Spacer(modifier = Modifier.weight(1f))
-            WoofClickButton(
-                expanded = expanded,
-                onClick = { expanded = !expanded }
-            )
+            WoofClickButton(expanded = expanded, onClick = { expanded = !expanded })
 
         }
         if (expanded) {
@@ -234,6 +236,13 @@ fun WoofAppListPreview() {
 @Preview(showBackground = true)
 @Composable
 fun WoofAppPreview() {
-    WoofApp()
+    WoofAppTheme {
+        // A surface container using the 'background' color from the theme
+        Surface(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            WoofApp()
+        }
+    }
 }
 

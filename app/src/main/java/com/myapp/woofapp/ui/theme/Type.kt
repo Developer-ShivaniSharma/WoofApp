@@ -9,18 +9,20 @@ import androidx.compose.ui.unit.sp
 import com.myapp.woofapp.R
 
 val AbrilFatFace = FontFamily(Font(R.font.abril_fatface_regular))
-val Montserrat = FontFamily(Font(R.font.montserrat_regular),
-    Font(R.font.montserrat_bold,FontWeight.Bold))
+val Montserrat = FontFamily(
+    Font(R.font.montserrat_regular),
+    Font(R.font.montserrat_bold, FontWeight.Bold)
+)
 val Typography = Typography(
     displayLarge = TextStyle(
         fontFamily = AbrilFatFace,
         fontWeight = FontWeight.Normal,
-        fontSize = 8.sp
+        fontSize = 14.sp
     ),
     displayMedium = TextStyle(
         fontFamily = Montserrat,
         fontWeight = FontWeight.Bold,
-        fontSize = 8.sp
+        fontSize = 34.sp
     ),
     labelSmall = TextStyle(
         fontFamily = Montserrat,

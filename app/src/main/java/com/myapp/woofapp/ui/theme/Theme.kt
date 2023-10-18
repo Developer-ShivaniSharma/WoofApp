@@ -1,13 +1,9 @@
-package com.example.woof.ui.theme
+package com.myapp.woofapp.ui.theme
 
 import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MaterialTheme.shapes
-import androidx.compose.material3.MaterialTheme.typography
-import androidx.compose.material3.Shapes
-import androidx.compose.material3.Typography
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -18,65 +14,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-import com.myapp.woofapp.ui.theme.Typography
-import com.myapp.woofapp.ui.theme.md_theme_dark_background
-import com.myapp.woofapp.ui.theme.md_theme_dark_error
-import com.myapp.woofapp.ui.theme.md_theme_dark_errorContainer
-import com.myapp.woofapp.ui.theme.md_theme_dark_inverseOnSurface
-import com.myapp.woofapp.ui.theme.md_theme_dark_inversePrimary
-import com.myapp.woofapp.ui.theme.md_theme_dark_inverseSurface
-import com.myapp.woofapp.ui.theme.md_theme_dark_onBackground
-import com.myapp.woofapp.ui.theme.md_theme_dark_onError
-import com.myapp.woofapp.ui.theme.md_theme_dark_onErrorContainer
-import com.myapp.woofapp.ui.theme.md_theme_dark_onPrimary
-import com.myapp.woofapp.ui.theme.md_theme_dark_onPrimaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_dark_onSecondary
-import com.myapp.woofapp.ui.theme.md_theme_dark_onSecondaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_dark_onSurface
-import com.myapp.woofapp.ui.theme.md_theme_dark_onSurfaceVariant
-import com.myapp.woofapp.ui.theme.md_theme_dark_onTertiary
-import com.myapp.woofapp.ui.theme.md_theme_dark_onTertiaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_dark_outline
-import com.myapp.woofapp.ui.theme.md_theme_dark_outlineVariant
-import com.myapp.woofapp.ui.theme.md_theme_dark_primary
-import com.myapp.woofapp.ui.theme.md_theme_dark_primaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_dark_scrim
-import com.myapp.woofapp.ui.theme.md_theme_dark_secondary
-import com.myapp.woofapp.ui.theme.md_theme_dark_secondaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_dark_surface
-import com.myapp.woofapp.ui.theme.md_theme_dark_surfaceTint
-import com.myapp.woofapp.ui.theme.md_theme_dark_surfaceVariant
-import com.myapp.woofapp.ui.theme.md_theme_dark_tertiary
-import com.myapp.woofapp.ui.theme.md_theme_dark_tertiaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_background
-import com.myapp.woofapp.ui.theme.md_theme_light_error
-import com.myapp.woofapp.ui.theme.md_theme_light_errorContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_inverseOnSurface
-import com.myapp.woofapp.ui.theme.md_theme_light_inversePrimary
-import com.myapp.woofapp.ui.theme.md_theme_light_inverseSurface
-import com.myapp.woofapp.ui.theme.md_theme_light_onBackground
-import com.myapp.woofapp.ui.theme.md_theme_light_onError
-import com.myapp.woofapp.ui.theme.md_theme_light_onErrorContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_onPrimary
-import com.myapp.woofapp.ui.theme.md_theme_light_onPrimaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_onSecondary
-import com.myapp.woofapp.ui.theme.md_theme_light_onSecondaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_onSurface
-import com.myapp.woofapp.ui.theme.md_theme_light_onSurfaceVariant
-import com.myapp.woofapp.ui.theme.md_theme_light_onTertiary
-import com.myapp.woofapp.ui.theme.md_theme_light_onTertiaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_outline
-import com.myapp.woofapp.ui.theme.md_theme_light_outlineVariant
-import com.myapp.woofapp.ui.theme.md_theme_light_primary
-import com.myapp.woofapp.ui.theme.md_theme_light_primaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_scrim
-import com.myapp.woofapp.ui.theme.md_theme_light_secondary
-import com.myapp.woofapp.ui.theme.md_theme_light_secondaryContainer
-import com.myapp.woofapp.ui.theme.md_theme_light_surface
-import com.myapp.woofapp.ui.theme.md_theme_light_surfaceTint
-import com.myapp.woofapp.ui.theme.md_theme_light_surfaceVariant
-import com.myapp.woofapp.ui.theme.md_theme_light_tertiary
-import com.myapp.woofapp.ui.theme.md_theme_light_tertiaryContainer
 
 private val LightColors = lightColorScheme(
     primary = md_theme_light_primary,
@@ -169,7 +106,7 @@ fun WoofAppTheme(
 
     MaterialTheme(
         colorScheme = colorScheme,
-        shapes = shapes,
+        shapes = Shapes,
         typography = Typography,
         content = content
     )
